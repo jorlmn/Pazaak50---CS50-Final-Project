@@ -1,0 +1,159 @@
+body {
+    background-color: #fff;
+    color: #212529;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.pazaakden {
+    background-image: url('images/pazaakden.jpeg');
+}
+
+.pazaaktable {
+    background-image: url('images/pazaaktable.png');
+}
+
+footer {
+    -webkit-text-stroke: 1px black;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.header {
+    background-color: #2D1D73;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.section {
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+}
+
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+}
+
+button, input[type="submit"] {
+    background-color: #d9edff;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+}
+
+input[type="text"], input[type="number"] {
+    line-height: 1.8;
+    width: 25%;
+}
+
+input[type="text"]:hover, input[type="number"]:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    color: white;
+}
+
+table th {
+    padding: 0.75rem;
+    vertical-align: middle;
+    color: white;
+    background-color: rgb(55, 78, 100, 0.9)
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3)
+}
+
+.pad {
+    padding: 2px;
+}
+
+.cardContainer {
+    min-height: 190px;
+}
+
+.card-checkbox {
+	cursor: pointer;
+	border: 6px solid transparent;
+}
+
+.card-checkbox-checked {
+	border-color: #2D1D73;
+}
+
+.scoreText {
+    background-color: rgb(179, 208, 255, 0.3);
+    color: black;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-color: #2D1D73;
+}
+
+.Name {
+    color: black;
+    font-weight: bold;
+    white-space: nowrap;
+
+    -webkit-text-stroke: 1px black;
+}
+
+.pazaak {
+    color: #8D76F0;
+    -webkit-text-stroke: 1px black;
+}
+
+.skip {
+    color: black;
+    -webkit-text-stroke: 1px black;
+}
+
+.bust {
+    color: #FF3737;
+    -webkit-text-stroke: 1px black;
+}
+
+.stand {
+    color: #BBA200;
+    -webkit-text-stroke: 1px black;
+}
+
+

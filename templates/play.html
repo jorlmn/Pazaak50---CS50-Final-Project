@@ -1,0 +1,107 @@
+{% extends "pazaaktable.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <script src="static/scripts.js"></script>
+
+
+    <div id="message" class="alert alert-primary" role="alert">
+        <span id="message" >{{matchData.message}}</span>
+    </div>
+
+    <div class="row show-grid justify-content-center">
+        <div class="col-md-1">
+            <form action="/playAgain"  method="post">
+                <button class="btn btn-secondary" type="submit" id="playAgain" style="display: none">Play Again</button>
+            </form>
+        </div>
+        <div class="col-md-1">
+            <form action="/chooseDeckAgain"  method="post">
+                <button class="btn btn-warning" type="submit" id="newDeck" style="display: none">Choose New Deck</button>
+            </form>
+        </div>
+        <div class="col-md-1">
+            <form action="/"  method="get">
+                <button class="btn btn-info" type="submit" id="home" style="display: none">Home</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="fullTable">
+        <div class="row show-grid justify-content-center">
+            <div class="col-sm-3 section">
+                <img src=static/images/roundwins0.png alt="#" id="playerSetWins">
+            </div>
+
+            <div class="col-sm-3 section">
+                <img src=static/images/roundwins0.png alt="#" id="aiSetWins">
+            </div>
+        </div>
+
+        <div class="row justify-content-end cardContainer" id="aiHand">
+            {% for row in matchData.AiHand %}
+                <div class="col-md-1 pad">
+                    <img src=static/images/cardhidden.png alt="#">
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row show-grid" id="tableDiv">
+            <div class="col-sm-6 section cardContainer" id="playerTable">
+                {% for row in matchData.PlayerTable %}
+                    <img src={{row.image}} alt="#" width="70" height="96">
+                {% endfor %}
+            </div>
+            <div class="col-sm-6 section cardContainer" id="aiTable">
+                {% for row in matchData.AiTable %}
+                    <img src={{row.image}} alt="#" width="70" height="96">
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row show-grid scoreText justify-content-center">
+            <div class="col-md-1">
+                <div><span class="Name" id="playerName">{{matchData.PlayerName}}</span></div>
+                <span id="playerScore">{{matchData.PlayerScore}}</span>
+                <span class="skip" id="playerStance">Skip</span>
+            </div>
+
+            <div class="col-md-1">
+            </div>
+
+            <div class="col-md-1">
+                <div><span class="Name" id="aiName">{{matchData.AiName}}</span></div>
+                <span id="aiScore">{{matchData.AiScore}}</span>
+                <span class="skip" id="aiStance">Skip</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row cardContainer" id="playerHand">
+                {% for row in matchData.PlayerHand %}
+                <div class="col-md-1 pad">
+                    <input type="radio" style="opacity:0" name="cards" id="{{row.id}}" onclick="showhidebuttons(event)" value="{{row.id}}">
+                    <label name="cardLabels" class="card-checkbox" for="{{row.id}}">
+                        <img class="img-responsive" src={{row.image}} alt="#">
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-1" id="playerButtons">
+                <div class="mb-1">
+                    <button class="btn btn-success" onclick="playCard()" id ="mainButton" style="display: none">Play Card</button>
+                    <button class="btn btn-success" onclick="playCard(1)" id ="buttonPositive" style="display: none">Play Card as Positive</button>
+                    <button class="btn btn-danger" onclick="playCard(-1)" id ="buttonNegative" style="display: none">Play Card as Negative</button>
+                </div>
+
+                <button class="btn btn-secondary" onclick="endTurn('Skip')" id="skipTurnButton">Skip Turn</button>
+                <button class="btn btn-warning" onclick="endTurn('Stand')" id="standButton">Stand</button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "pazaakden.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+
+<form action="/chooseDeck" method="post">
+    <div class="row show-grid justify-content-center">
+        <div class="col-sm-3 section">
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="playername" name="playername" placeholder="Player Name" type="text">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Play Pazaak</button>
+            </div>
+        </div>
+
+        <div class="col-sm-3 section">
+            <table>
+                <thead>
+                    <th>Pazaak Player</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Win Percentage</th>
+                </thead>
+
+                <tbody>
+                    {% for row in leaderboard %}
+                    <tr> <td>{{row.username}}</td><td>{{row.victories}}</td><td>{{row.losses}}</td><td>{{row.winpercentage}}</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+{% endblock %}

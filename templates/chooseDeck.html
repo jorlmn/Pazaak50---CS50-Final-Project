@@ -1,0 +1,53 @@
+{% extends "pazaaktable.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <script>
+    function CheckCards() {
+    var numberOfCards = document.querySelectorAll("input[name='cards']:checked");
+
+    if (numberOfCards.length != 10)
+    {
+        $("#warning").text("You must choose exactly 10 cards");
+        $("#warningType").removeClass("alert-primary");
+        $("#warningType").addClass("alert alert-danger");
+
+        return false;
+    }
+    }
+
+    function chooseCard(e) {
+    cardClicked = e.srcElement;
+
+    document.querySelector("label[for='" + CSS.escape(cardClicked.value) + "']").classList.toggle('card-checkbox-checked');
+    }
+    </script>
+
+    <header>
+        <div id ="warningType" class="alert alert-primary" role="alert">
+            <b><span id="warning">Pick 10 cards for your deck</span></b>
+        </div>
+    </header>
+
+    <div class="container">
+    <form action="/play" onsubmit="return CheckCards()" method="post">
+        <div class="row">
+            {% for row in mainDeck %}
+            <div class="col-md-1 pad">
+                <input type="checkbox" style="opacity:0" name="cards" id="{{row.id}}" onclick="chooseCard(event)" value="{{row.id}}">
+                <label name="cardLabels" class="card-checkbox" for="{{row.id}}">
+                    <img class="img-responsive" src={{row.image}} alt="#">
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Choose Deck</button>
+        </div>
+    </form>
+    </div>
+{% endblock %}
